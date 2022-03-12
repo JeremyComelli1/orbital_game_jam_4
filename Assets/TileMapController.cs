@@ -12,6 +12,8 @@ public class TileMapController : MonoBehaviour
 
     private Vector3Int previous;
 
+    public GameObject gameGrid;
+
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
@@ -32,6 +34,9 @@ public class TileMapController : MonoBehaviour
 
                 // save the new position for next frame
                 previous = gridPosition;
+
+                gameGrid.GetComponent<GameGrid>().PlantThiccSeed(gridPosition);
+
             }
 
         }
