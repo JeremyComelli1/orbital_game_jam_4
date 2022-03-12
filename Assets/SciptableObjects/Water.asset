@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7adcd618bf77c4e8364122603a6473, type: 3}
   m_Name: Water
   m_EditorClassIdentifier: 
-  tiles: []
+  tiles:
+  - {fileID: 11400000, guid: e8a974755b7824845adf6040e73fe761, type: 2}
   state: 0
