@@ -41,3 +41,7 @@ Sprint 1 goals
 		- Jeremy
 	- Water Source
 		- Anthony
+	- Seed
+		- Anthony
+	- Ennemy
+		- Anthony
