@@ -23,6 +23,8 @@ public class TileMapController : MonoBehaviour
 
             TileBase clickedTile = tileMap.GetTile(gridPosition);
 
+            Debug.Log(gridPosition);
+
             // if the position has changed
             if (gridPosition != previous)
             {

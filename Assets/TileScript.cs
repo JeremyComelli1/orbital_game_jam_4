@@ -21,6 +21,7 @@ public class TileScript : MonoBehaviour
 
     public void SetState(State state)
     {
+        this.currentState = state;
         // Here swap the underlying visual prefab and set the currentState for calculations
     }
 }

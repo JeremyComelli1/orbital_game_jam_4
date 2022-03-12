@@ -18,12 +18,14 @@ public class GameGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tiles = new GameObject[width, height];
         //Instantiate all game tiles to default value (ground) 
         for (int i = 0; i < width; i++)
         {
             for(int j = 0; j< height; j++)
             {
-                tiles[i,j] = Instantiate(tilePrefab, tileMap.GetCellCenterWorld(new Vector3Int(i, j, 0)), Quaternion.identity);
+                //Debug.Log();
+                tiles[i,j] = Instantiate(tilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))), Quaternion.identity);
             }
         }
 
@@ -44,7 +46,10 @@ public class GameGrid : MonoBehaviour
             for (int j = -1; j <= 1; j++)
             {
                 Vector2Int currPos = new Vector2Int(i, j) + GridPositionToArrayIndex(gridPosition);
-                tiles[currPos.x, currPos.y].GetComponent<TileScript>().SetState(TileScript.State.grass);
+                if (0 <=currPos.x  && currPos.x < 12 && 0<= currPos.y && currPos.y < 12)
+                {
+                    tiles[currPos.x, currPos.y].GetComponent<TileScript>().SetState(TileScript.State.grass);
+                }
             }
         }
     }
@@ -66,7 +71,12 @@ public class GameGrid : MonoBehaviour
 
     private Vector2Int GridPositionToArrayIndex(Vector3Int gridPosition)
     {
-        return new Vector2Int(gridPosition.x - 10, gridPosition.y - 10);
+        return new Vector2Int(gridPosition.x + 6, gridPosition.y + 6);
+    }
+
+    private Vector3Int ArrayIndexToGridPosition(Vector2Int arrayPos)
+    {
+        return new Vector3Int(arrayPos.x - 6, arrayPos.y - 6, 0);
     }
 
 }
