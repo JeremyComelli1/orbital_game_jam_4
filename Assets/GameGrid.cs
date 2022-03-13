@@ -29,14 +29,20 @@ public class GameGrid : MonoBehaviour
         {
             for(int j = 0; j< height; j++)
             {
-                // Instantiate the Tile GameObject with an offset to prevent clipping with the underlying tilemap 
-                GameObject CurrentTile = Instantiate(DirtTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity);
-
-                // Attach TileScript
+                
+                // Create empty gameObject since we need to dynamically swap the displayed gameObject; the tile is therefore a child set thorugh tileScript.SetObject(Gameobject object)
+                GameObject CurrentTile = new GameObject("Tile");
                 CurrentTile.AddComponent<TileScript>();
+                CurrentTile.GetComponent<TileScript>().gameGrid = this;
+
+                // Instantiate the Tile GameObject with an offset to prevent clipping with the underlying tilemap 
+                CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(DirtTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
 
                 // Set default tile (dirt)
+                // DO NOT CALL BEFORE SETTING A TILE BECAUSE THEN MY SHITTY CODE BREAKS
                 CurrentTile.GetComponent<TileScript>().SetState(TileScript.State.dirt);
+
+
 
                 tiles[i, j] = CurrentTile;
             }
@@ -90,15 +96,9 @@ public class GameGrid : MonoBehaviour
         return new Vector2Int(gridPosition.x + 6, gridPosition.y + 6);
     }
 
-    private Vector3Int ArrayIndexToGridPosition(Vector2Int arrayPos)
+    public Vector3Int ArrayIndexToGridPosition(Vector2Int arrayPos)
     {
         return new Vector3Int(arrayPos.x - 6, arrayPos.y - 6, 0);
-    }
-
-    // Prolly shouldn't be a function, remove if necessary
-    private GameObject GetRandomGrassTile()
-    {
-        return GrassTilesPrefabs[Random.Range(0, GrassTilesPrefabs.Count)];
     }
 }
 
