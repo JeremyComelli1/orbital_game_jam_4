@@ -7,6 +7,10 @@ public class GameGrid : MonoBehaviour {
     public int width;
     public int height;
 
+    public List<string> LevelPaths;
+
+    public List<GameObject[,]> levels;
+
     public GameObject[,] tiles;
     public List<GameObject> GrassTilesPrefabs;
     public GameObject DirtTilePrefab;
@@ -105,6 +109,16 @@ public class GameGrid : MonoBehaviour {
     public Vector3Int ArrayIndexToGridPosition(Vector2Int arrayPos)
     {
         return new Vector3Int(arrayPos.x - 6, arrayPos.y - 6, 0);
+    }
+
+    public void ImportLevel(int levelID)
+    {
+        // For each level file
+        for(int i = 0; i < LevelPaths.Count; i++)
+        {
+            // read Vickys enums here
+
+        }
     }
 }
 
