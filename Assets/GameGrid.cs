@@ -24,13 +24,18 @@ public class GameGrid : MonoBehaviour
         {
             for(int j = 0; j< height; j++)
             {
+                // Get tile data here
+                TileBase CurrentTile = tileMap.GetTile(new Vector3Int(i, j));
+                
 
                 // Spawn Tiles with an offset to prevent clipping with the underlying tilemap 
                 tiles[i, j] = Instantiate(GrassTiles[Random.Range(0, GrassTiles.Count)], tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity);
             }
         }
+        
         // hehe
-        if (Random.Range(0, 100) < 99) { for (int i = 0; i < 100; i++) Debug.Log("<color=red>PENISPENISPENISPENIS</color>"); }
+        if (Random.Range(0, 100) > 99) { for (int i = 0; i < 100; i++) Debug.Log("<color=red>PENISPENISPENISPENIS</color>"); }
+
         // Here go setup values for the specific level
     }
 
@@ -39,7 +44,6 @@ public class GameGrid : MonoBehaviour
     {
 
     }
-
 
     public void PlantThiccSeed(Vector3Int gridPosition)
     {
@@ -80,5 +84,4 @@ public class GameGrid : MonoBehaviour
     {
         return new Vector3Int(arrayPos.x - 6, arrayPos.y - 6, 0);
     }
-
 }
