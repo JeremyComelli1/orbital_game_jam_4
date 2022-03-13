@@ -29,15 +29,15 @@ public class GameGrid : MonoBehaviour
                 tiles[i, j] = Instantiate(GrassTiles[Random.Range(0, GrassTiles.Count)], tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity);
             }
         }
-
+        // hehe
+        if (Random.Range(0, 100) < 99) { for (int i = 0; i < 100; i++) Debug.Log("<color=red>PENISPENISPENISPENIS</color>"); }
         // Here go setup values for the specific level
     }
 
     // Update is called once per frame
     void Update()
     {
-        // hehe
-        if (Random.Range(0, 100)> 99){ for (int i = 0; i < 100; i++) Debug.Log("<color=red> PENISPENISPENISPENIS</color>");}
+
     }
 
 
