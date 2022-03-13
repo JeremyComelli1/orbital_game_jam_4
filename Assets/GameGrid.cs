@@ -91,7 +91,7 @@ public class GameGrid : MonoBehaviour
 
     }
 
-    private Vector2Int GridPositionToArrayIndex(Vector3Int gridPosition)
+    public Vector2Int GridPositionToArrayIndex(Vector3Int gridPosition)
     {
         return new Vector2Int(gridPosition.x + 6, gridPosition.y + 6);
     }

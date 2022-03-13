@@ -41,19 +41,20 @@ public class TileScript : MonoBehaviour
     }
 
     // Instantiates a new gameobject to replace the current tile
-    private GameObject SwapCurrentTile(State newState)
+    private void SwapCurrentTile(State newState)
     {
-        int X = (int)this.TileObject.transform.position.x;
-        int Y = (int)this.TileObject.transform.position.y;
+        int X = (int)TileObject.transform.position.x;
+        int Y = (int)TileObject.transform.position.y;
+
 
         switch (newState)
         {
             case State.dirt:
-                this.SetObject(Instantiate(gameGrid.DirtTilePrefab, gameGrid.tileMap.GetCellCenterWorld(gameGrid.ArrayIndexToGridPosition(new Vector2Int(X, Y))) + new Vector3(0, 0, -1), Quaternion.identity));
+                this.SetObject(Instantiate(gameGrid.DirtTilePrefab, TileObject.transform.position, Quaternion.identity, transform));
                 break;
 
             case State.grass:
-                this.SetObject(Instantiate(gameGrid.GrassTilesPrefabs[Random.Range(0, gameGrid.GrassTilesPrefabs.Count)], gameGrid.tileMap.GetCellCenterWorld(gameGrid.ArrayIndexToGridPosition(new Vector2Int(X, Y))) + new Vector3(0, 0, -1), Quaternion.identity, transform));
+                this.SetObject(Instantiate(gameGrid.GrassTilesPrefabs[Random.Range(0, gameGrid.GrassTilesPrefabs.Count)], TileObject.transform.position, Quaternion.identity, transform));
                 break;
 
             default:
@@ -62,10 +63,10 @@ public class TileScript : MonoBehaviour
 
                 // TODO: ADD ALL TILES HERE
         }
-        return null;
     }
     public void SetObject(GameObject NewObject)
     {
+        Destroy(this.TileObject);
         this.TileObject = NewObject;
     }
 
