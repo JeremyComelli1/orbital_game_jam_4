@@ -70,10 +70,10 @@ public class GameGrid : MonoBehaviour {
 
     public void PlantLongSeed(Vector3Int gridPosition, Direction direction)
     {
-        int delta;
         Vector2Int currPos = GridPositionToArrayIndex(gridPosition);
         tiles[currPos.x, currPos.y].GetComponent<TileScript>().SetState(TileScript.State.grass);
 
+        int delta;
         if (direction == Direction.up || direction == Direction.right) delta = 1;
         else delta = -1;
 
