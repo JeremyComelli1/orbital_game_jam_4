@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelImporter : MonoBehaviour
 {
     private const string levelsFolder = "../Assets/Levels/";
+    //                      0         1     2      3        4               5         6     7
     public enum tiles {CONCRETE = 0, DIRT, GRASS, SEED, SHEEP_CONCRETE, SHEEP_DIRT, GOAL, WATER};
 
     // Return the grid tiles
