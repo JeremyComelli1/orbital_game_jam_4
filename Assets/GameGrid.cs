@@ -10,7 +10,12 @@ public class GameGrid : MonoBehaviour
     public int height;
 
     public GameObject[,] tiles;
-    public List <GameObject> GrassTiles;
+    public List <GameObject> GrassTilesPrefabs;
+    public GameObject DirtTilePrefab;
+    public GameObject WaterTilePrefab;
+    public GameObject ConcreteTilePrefab;
+
+
 
     public Tilemap tileMap;
     public enum Direction { left, up, right, down };
@@ -24,12 +29,16 @@ public class GameGrid : MonoBehaviour
         {
             for(int j = 0; j< height; j++)
             {
-                // Get tile data here
-                TileBase CurrentTile = tileMap.GetTile(new Vector3Int(i, j));
-                
+                // Instantiate the Tile GameObject with an offset to prevent clipping with the underlying tilemap 
+                GameObject CurrentTile = Instantiate(DirtTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity);
 
-                // Instantiate Tiles with an offset to prevent clipping with the underlying tilemap 
-                tiles[i, j] = Instantiate(GrassTiles[Random.Range(0, GrassTiles.Count)], tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity);
+                // Attach TileScript
+                CurrentTile.AddComponent<TileScript>();
+
+                // Set default tile (dirt)
+                CurrentTile.GetComponent<TileScript>().SetState(TileScript.State.dirt);
+
+                tiles[i, j] = CurrentTile;
             }
         }
         
@@ -85,4 +94,11 @@ public class GameGrid : MonoBehaviour
     {
         return new Vector3Int(arrayPos.x - 6, arrayPos.y - 6, 0);
     }
+
+    // Prolly shouldn't be a function, remove if necessary
+    private GameObject GetRandomGrassTile()
+    {
+        return GrassTilesPrefabs[Random.Range(0, GrassTilesPrefabs.Count)];
+    }
 }
+
