@@ -33,13 +33,89 @@ public class GameGrid : MonoBehaviour {
                 CurrentTile.AddComponent<TileScript>();
                 CurrentTile.GetComponent<TileScript>().gameGrid = this;
 
-                // Instantiate the Tile GameObject with an offset to prevent clipping with the underlying tilemap 
-                CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(DirtTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                if (i < 2 && j < 2)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(WaterTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().SetState(TileScript.State.water);
 
-                // Set default tile (dirt)
-                // DO NOT CALL BEFORE SETTING A TILE BECAUSE THEN MY SHITTY CODE BREAKS
-                CurrentTile.GetComponent<TileScript>().SetState(TileScript.State.dirt);
+                }
+                else if(i > 10 && j > 10)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(WaterTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.victory_water;
+                }
 
+                else if (i < 3 && j > 1 && j < 3)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(GrassTilesPrefabs[Random.Range(0, GrassTilesPrefabs.Count)], tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.grass;
+                }
+
+                else if (i > 1 && i < 3 && j < 2)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(GrassTilesPrefabs[Random.Range(0, GrassTilesPrefabs.Count)], tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.grass;
+                }
+
+                else if (j > 6 && i < 2)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
+                else if (j > 7 && i < 4)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
+                else if (j > 8 && i < 6)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
+                else if (j > 10 && i < 7)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
+                else if (i > 5 && j < 3)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
+                else if (i > 7 && j < 4)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
+                else if (i > 8 && j < 6)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
+                else if (i > 9 && j < 7)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
+
+
+                else
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(DirtTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    //if (i == 11 && j == 11) CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(VictoryTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+
+                    // Set default tile (dirt)
+                    // DO NOT CALL BEFORE SETTING A TILE BECAUSE THEN MY SHITTY CODE BREAKS
+                    CurrentTile.GetComponent<TileScript>().SetState(TileScript.State.dirt);
+                }
 
 
                 tiles[i, j] = CurrentTile;
