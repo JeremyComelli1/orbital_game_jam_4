@@ -28,7 +28,7 @@ public class GameGrid : MonoBehaviour
                 TileBase CurrentTile = tileMap.GetTile(new Vector3Int(i, j));
                 
 
-                // Spawn Tiles with an offset to prevent clipping with the underlying tilemap 
+                // Instantiate Tiles with an offset to prevent clipping with the underlying tilemap 
                 tiles[i, j] = Instantiate(GrassTiles[Random.Range(0, GrassTiles.Count)], tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity);
             }
         }
@@ -37,6 +37,7 @@ public class GameGrid : MonoBehaviour
         if (Random.Range(0, 100) > 99) { for (int i = 0; i < 100; i++) Debug.Log("<color=red>PENISPENISPENISPENIS</color>"); }
 
         // Here go setup values for the specific level
+
     }
 
     // Update is called once per frame
