@@ -36,7 +36,8 @@ public class GameGrid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // hehe
+        if (Random.Range(0, 100)> 99){ for (int i = 0; i < 100; i++) Debug.Log("<color=red> PENISPENISPENISPENIS</color>");}
     }
 
 
