@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class TileMapController : MonoBehaviour
-{   
+public class TileMapController : MonoBehaviour {
     public Tilemap tileMap;
 
     public Tile highlightTile;
@@ -16,7 +13,7 @@ public class TileMapController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int gridPosition = tileMap.WorldToCell(mousePosition);

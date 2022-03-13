@@ -1,16 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class GameGrid : MonoBehaviour
-{
+public class GameGrid : MonoBehaviour {
 
     public int width;
     public int height;
 
     public GameObject[,] tiles;
-    public List <GameObject> GrassTilesPrefabs;
+    public List<GameObject> GrassTilesPrefabs;
     public GameObject DirtTilePrefab;
     public GameObject WaterTilePrefab;
     public GameObject ConcreteTilePrefab;
@@ -27,9 +25,9 @@ public class GameGrid : MonoBehaviour
         //Instantiate all game tiles to default value (ground) 
         for (int i = 0; i < width; i++)
         {
-            for(int j = 0; j< height; j++)
+            for (int j = 0; j < height; j++)
             {
-                
+
                 // Create empty gameObject since we need to dynamically swap the displayed gameObject; the tile is therefore a child set thorugh tileScript.SetObject(Gameobject object)
                 GameObject CurrentTile = new GameObject("Tile");
                 CurrentTile.AddComponent<TileScript>();
@@ -47,17 +45,11 @@ public class GameGrid : MonoBehaviour
                 tiles[i, j] = CurrentTile;
             }
         }
-        
+
         // hehe
         if (Random.Range(0, 100) > 99) { for (int i = 0; i < 100; i++) Debug.Log("<color=red>PENISPENISPENISPENIS</color>"); }
 
         // Here go setup values for the specific level
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 
@@ -68,7 +60,7 @@ public class GameGrid : MonoBehaviour
             for (int j = -1; j <= 1; j++)
             {
                 Vector2Int currPos = new Vector2Int(i, j) + GridPositionToArrayIndex(gridPosition);
-                if (0 <=currPos.x  && currPos.x < 12 && 0<= currPos.y && currPos.y < 12)
+                if (0 <= currPos.x && currPos.x < 12 && 0 <= currPos.y && currPos.y < 12)
                 {
                     tiles[currPos.x, currPos.y].GetComponent<TileScript>().SetState(TileScript.State.grass);
                 }
@@ -85,7 +77,7 @@ public class GameGrid : MonoBehaviour
         if (direction == Direction.up || direction == Direction.right) delta = 1;
         else delta = -1;
 
-        for(int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++)
         {
             // Delta is applied horizontally or vertically
             if (direction == Direction.up || direction == Direction.down) currPos += new Vector2Int(0, delta);
