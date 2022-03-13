@@ -26,27 +26,38 @@ public class TileScript : MonoBehaviour
         
     }
 
-    public void SetState(State state)
+    public void SetState(State NewState)
     {
-         
-        if(this.currentState != state && this.currentState != State.error)
+        bool ChangeDenied = false;
+        // Is this what they call a NewState machine?
+        if(this.currentState != NewState && this.currentState != State.error)
         {
-            SwapCurrentTile(state);
+            // Cases where a state change is possible
+            if (this.currentState == State.dirt && NewState == State.grass)
+            {
+                SwapCurrentTile(NewState);
+            }
+            else if (this.currentState == State.grass && NewState == State.dirt)
+            {
+                // Mouton goes here I guess
+            }
+            else ChangeDenied = true;
         }
 
-        this.currentState = state;
+        if(!ChangeDenied) this.currentState = NewState;
 
 
         // Here swap the underlying visual prefab and set the currentState for calculations
     }
 
+    public State GetState()
+    {
+        return this.currentState;
+    }
+
     // Instantiates a new gameobject to replace the current tile
     private void SwapCurrentTile(State newState)
     {
-        int X = (int)TileObject.transform.position.x;
-        int Y = (int)TileObject.transform.position.y;
-
-
         switch (newState)
         {
             case State.dirt:
