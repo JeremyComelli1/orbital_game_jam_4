@@ -30,8 +30,6 @@ public class SheepScript : MonoBehaviour
 
     public Vector2Int Move()
     {
-        Debug.Log("CURR POS : " + currPos);
-        Debug.Log("NEXT MOV : " + nextMove);
         // Internal
         this.transform.position = grid.GetComponent<GameGrid>().GetRealWorldPos(nextMove);
         currPos = nextMove;
@@ -77,7 +75,6 @@ public class SheepScript : MonoBehaviour
                 }
             }
             var closestDistanceIndex = seenGrassDistance.IndexOf(seenGrassDistance.Find(a => a == closestDistance));
-            Debug.Log(closestDistance);
             if (closestDistance <= 1)
             {
                 //Yes eat logic 
@@ -249,7 +246,6 @@ public class SheepScript : MonoBehaviour
         {
             this.nextMove = currPos;
         }
-        Debug.Log("COMPUTEDNEXTMOVE: " + nextMove);
         
         return nextMove;
     }

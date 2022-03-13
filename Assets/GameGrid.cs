@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class GameGrid : MonoBehaviour {
@@ -182,20 +183,23 @@ public class GameGrid : MonoBehaviour {
                 tiles[currPos.x, currPos.y].GetComponent<TileScript>().SetState(TileScript.State.grass);
             }
         }
+        NextTurn();
     }
 
     public void NextTurn()
     {
         if (tiles[10,11].GetComponent<TileScript>().GetState() == TileScript.State.grass || tiles[11, 10].GetComponent<TileScript>().GetState() == TileScript.State.grass)
         {
-            Debug.Log("You Win!");
+            SceneManager.LoadScene(sceneName: "win");
         }
 
         MoveSheep();
 
         if (!ValidateYourself())
         {
-            Debug.Log("You lose!");
+            Debug.Log("You lose ");
+            SceneManager.LoadScene(sceneName: "lose");
+
         }
     }
 

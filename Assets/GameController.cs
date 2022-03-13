@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         _longSeedNumber = 5;
-        _thiccSeedNumber = 3;
+        _thiccSeedNumber = 20;
         _longSeedButton = LongSeedButton.GetComponent<Button>();
         _thiccSeedButton = ThiccSeedButton.GetComponent<Button>();
         _longSeed = longSeed.GetComponent<TextMeshProUGUI>();
@@ -30,6 +30,8 @@ public class GameController : MonoBehaviour
        
         _longSeedButton.onClick.AddListener(delegate { SelectSeed(0); });
         _thiccSeedButton.onClick.AddListener(delegate { SelectSeed(1); });
+
+        selectedSeed = 1;
 
     }
 
