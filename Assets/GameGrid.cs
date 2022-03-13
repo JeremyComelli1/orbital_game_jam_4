@@ -26,6 +26,7 @@ public class GameGrid : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
+
         CurrentLevelTiles = new GameObject[width, height];
         //Instantiate all game tiles to default value (ground) 
         for (int i = 0; i < width; i++)
@@ -129,32 +130,57 @@ public class GameGrid : MonoBehaviour {
         }
     }
 
-    public void Draw_level(GameObject[,] newLevel)
+    public void DestroyLevel()
     {
-        CurrentLevelTiles = new GameObject[width, height];
-        //Instantiate all game tiles to default value (ground) 
-        for (int i = 0; i < width; i++)
+        if (CurrentLevelTiles.Length > 0)
         {
-            for (int j = 0; j < height; j++)
+            for (int i = 0; i < width; i++)
             {
-
-                // Create empty gameObject since we need to dynamically swap the displayed gameObject; the tile is therefore a child set thorugh tileScript.SetObject(Gameobject object)
-                GameObject CurrentTile = new GameObject("Tile");
-                CurrentTile.AddComponent<TileScript>();
-                CurrentTile.GetComponent<TileScript>().gameGrid = this;
-
-                // Instantiate the Tile GameObject with an offset to prevent clipping with the underlying tilemap 
-                CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(DirtTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
-
-                // Set default tile (dirt)
-                // DO NOT CALL BEFORE SETTING A TILE BECAUSE THEN MY SHITTY CODE BREAKS
-                CurrentTile.GetComponent<TileScript>().SetState(TileScript.State.dirt);
-
-
-
-                CurrentLevelTiles[i, j] = CurrentTile;
+                for (int j = 0; j < height; j++)
+                {
+                    Destroy(CurrentLevelTiles[i, j]);
+                }
             }
         }
     }
+    public void DrawLevel(GameObject[,] newLevel)
+    {
+        DestroyLevel();
+        if (newLevel.Length > 0)
+        {
+            CurrentLevelTiles = new GameObject[width, height];
+            //Instantiate all game tiles to default value (ground) 
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+
+                    // Create empty gameObject since we need to dynamically swap the displayed gameObject; the tile is therefore a child set thorugh tileScript.SetObject(Gameobject object)
+                    GameObject CurrentTile = new GameObject("Tile");
+                    CurrentTile.AddComponent<TileScript>();
+                    CurrentTile.GetComponent<TileScript>().gameGrid = this;
+
+                    // Instantiate the Tile GameObject with an offset to prevent clipping with the underlying tilemap 
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(DirtTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+
+                    // Set default tile (dirt)
+                    // DO NOT CALL BEFORE SETTING A TILE BECAUSE THEN MY SHITTY CODE BREAKS
+                    CurrentTile.GetComponent<TileScript>().SetState(TileScript.State.dirt);
+
+
+
+                    CurrentLevelTiles[i, j] = CurrentTile;
+                }
+            }
+        }
+    }
+
+
+    // TODO: Voir avec Sandwich si possible, pour l'instant dans les nice to have
+    /*public void SetGridSize(int Width, int Height)
+    {
+        width = Width;
+        height = Height;
+    }*/
 }
 
