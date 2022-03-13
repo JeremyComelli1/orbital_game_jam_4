@@ -5,7 +5,7 @@ using UnityEngine;
 public class TileScript : MonoBehaviour
 {
     
-    public enum State { water, ground, grass, sheep, rock };
+    public enum State { water, dirt, grass, sheep, rock };
     public State currentState;
 
     void Start()
