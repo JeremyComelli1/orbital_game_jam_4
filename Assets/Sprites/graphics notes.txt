@@ -1,0 +1,47 @@
+Tiles:
+- Grass
+- Concrete
+- Water Source
+- Raw dirt
+- Hole/Crevice
+
+Entities:
+- Honeybee
+- Fire
+- Radioactive Barrel
+	- Radioactive cloud
+	- Radioactive tile variations
+- Goat
+	- Anti-goat countermeasures (chardon, poison, ...)
+- Seed
+- Plant
+	- Lv 1-2-3
+
+	
+Nice to have:
+	- Decoration
+		- Trashcan
+		- Skeleton
+		- Car wreck
+		- Plant variations (Lv 1-2-3, fire/concrete/radioactive)
+		- Survivor gear (gas mask, weapons, ...)
+		- ...
+
+Sprint 1 goals
+- Charte graphique/palette
+	- Plants palette
+	- Industrial palette (concrete, equipment, decorations)
+	- Entities palette (Honeybee, goat)
+	- Misc (fire, ...)
+	
+- Tiles
+	- Concrete
+		- Vicky
+	- Grass
+		- Jeremy
+	- Water Source
+		- Anthony
+	- Seed
+		- Anthony
+	- Ennemy
+		- Anthony
