@@ -78,7 +78,21 @@ public class GameGrid : MonoBehaviour
 
     public void PlantLongSeed(Vector3Int gridPosition, Direction direction)
     {
+        int delta;
+        Vector2Int currPos = GridPositionToArrayIndex(gridPosition);
+        tiles[currPos.x, currPos.y].GetComponent<TileScript>().SetState(TileScript.State.grass);
 
+        if (direction == Direction.up || direction == Direction.right) delta = 1;
+        else delta = -1;
+
+        for(int i = 0; i < 4; i++)
+        {
+            // Delta is applied horizontally or vertically
+            if (direction == Direction.up || direction == Direction.down) currPos += new Vector2Int(0, delta);
+            else currPos += new Vector2Int(delta, 0);
+
+            tiles[currPos.x, currPos.y].GetComponent<TileScript>().SetState(TileScript.State.grass);
+        }
     }
 
     public void NextTurn()

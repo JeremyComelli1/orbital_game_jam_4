@@ -37,7 +37,8 @@ public class TileMapController : MonoBehaviour
                 // save the new position for next frame
                 previous = gridPosition;
 
-                gameGrid.GetComponent<GameGrid>().PlantThiccSeed(gridPosition);
+                //gameGrid.GetComponent<GameGrid>().PlantThiccSeed(gridPosition);
+                gameGrid.GetComponent<GameGrid>().PlantLongSeed(gridPosition, GameGrid.Direction.left);
 
             }
 
