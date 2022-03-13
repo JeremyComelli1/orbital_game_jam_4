@@ -57,6 +57,54 @@ public class GameGrid : MonoBehaviour {
                     CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.grass;
                 }
 
+                else if (j > 6 && i < 2)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
+                else if (j > 7 && i < 4)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
+                else if (j > 8 && i < 6)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
+                else if (j > 10 && i < 7)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
+                else if (i > 5 && j < 3)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
+                else if (i > 7 && j < 4)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
+                else if (i > 8 && j < 6)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
+                else if (i > 9 && j < 7)
+                {
+                    CurrentTile.GetComponent<TileScript>().SetObject(Instantiate(ConcreteTilePrefab, tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity, CurrentTile.transform));
+                    CurrentTile.GetComponent<TileScript>().currentState = TileScript.State.rock;
+                }
+
 
 
                 else
