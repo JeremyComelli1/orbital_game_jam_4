@@ -60,13 +60,13 @@ public class TileMapController : MonoBehaviour {
                 previous = gridPosition;
             } else
             {
-                if (_gameController.selectedSeed == 0 && _directionSelected && _gameController._longSeedNumber > 1)
+                if (_gameController.selectedSeed == 0 && _directionSelected && _gameController._longSeedNumber >= 1)
                 {
                     gameGrid.GetComponent<GameGrid>().PlantLongSeed(gridPosition, _direction);
                     _gameController._longSeedNumber -= 1;
                     _directionSelected = false;
                 }
-                if (_gameController.selectedSeed == 1 && _gameController._thiccSeedNumber >1)
+                if (_gameController.selectedSeed == 1 && _gameController._thiccSeedNumber >= 1)
                 {
                     _gameController._thiccSeedNumber -= 1;
                     gameGrid.GetComponent<GameGrid>().PlantThiccSeed(gridPosition);
