@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6549743804655193581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6549743804655193579}
+  - component: {fileID: 6549743804802294120}
+  m_Layer: 0
+  m_Name: GameGrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6549743804655193579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6549743804655193581}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5783613, y: -1.5075449, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6549743804802294120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6549743804655193581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc6d6ea02b4ebb459f302fcfacc8648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 12
+  height: 12
+  GrassTilesPrefabs:
+  - {fileID: 2008559132738843861, guid: d7c116573278b9e429075e490cbc2a90, type: 3}
+  - {fileID: 6239524668202105571, guid: 267bf3ddbe4a0b34d9bd075710200157, type: 3}
+  - {fileID: 6413323860074030192, guid: 2199ab30c4fbd184cacf693b411409c1, type: 3}
+  - {fileID: 4366438707749554463, guid: e1a8478b6182d294d88fbe8e0b960461, type: 3}
+  - {fileID: 990291160818807021, guid: a7855ffde54b4ac4cb048e5ce6feabc3, type: 3}
+  - {fileID: 7689352166020760851, guid: e8bb8565fd30b0145ae70876834fd9db, type: 3}
+  - {fileID: 1166014662856352676, guid: 4e37b95188a5db246ad9a6d0ced0b14f, type: 3}
+  - {fileID: 2698431010324813944, guid: e8e9267e077f24e40ae114832b786ffa, type: 3}
+  - {fileID: 7485188413719913756, guid: 3630896ffd27ff647a03ec420d977b39, type: 3}
+  - {fileID: 4688263253803249247, guid: a485f08ab78520b4fb6d15da667f0349, type: 3}
+  - {fileID: 7601960464627006347, guid: c3b2b2118b4ea694aab5a70eeaee30ce, type: 3}
+  - {fileID: 4961095234168951320, guid: ab7c61c5d86a22c4a806295a0d9cde11, type: 3}
+  - {fileID: 5777994846031009071, guid: 5962554b202b7ce45a2825abd335470f, type: 3}
+  - {fileID: 7571330046832594484, guid: 46ca9e0c1f10b644bb2891c99727370a, type: 3}
+  - {fileID: 5477993897354626193, guid: f17151c1adf5b0345ad9080880f793bc, type: 3}
+  - {fileID: 4839026418069655399, guid: 9a94b231c5272e448ab6f4374f8705ed, type: 3}
+  - {fileID: 2109778988840738388, guid: 3011b2523b44fde448d35483a3f6b784, type: 3}
+  DirtTilePrefab: {fileID: 1631795173219228831, guid: 5a72b203ca679414785fd0d2822c3716,
+    type: 3}
+  WaterTilePrefab: {fileID: 0}
+  ConcreteTilePrefab: {fileID: 0}
+  tileMap: {fileID: 0}
