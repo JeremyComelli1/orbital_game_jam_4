@@ -12,7 +12,7 @@ public class GameGrid : MonoBehaviour {
     public GameObject DirtTilePrefab;
     public GameObject WaterTilePrefab;
     public GameObject ConcreteTilePrefab;
-
+    public GameObject VictoryTilePrefab;
 
 
     public Tilemap tileMap;
