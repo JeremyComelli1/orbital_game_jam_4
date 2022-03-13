@@ -133,8 +133,12 @@ public class GameGrid : MonoBehaviour {
 
         GameObject sheep = Instantiate(SheepPrefab);
         sheep.GetComponent<SheepScript>().grid = this.gameObject;
-        sheep.GetComponent<SheepScript>().SetInitialPos(8, 8);
+        sheep.GetComponent<SheepScript>().SetInitialPos(5, 5);
         sheeps.Add(sheep);
+        GameObject sheep2 = Instantiate(SheepPrefab);
+        sheep2.GetComponent<SheepScript>().grid = this.gameObject;
+        sheep2.GetComponent<SheepScript>().SetInitialPos(8, 8);
+        sheeps.Add(sheep2);
 
     }
 
