@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TileScript : MonoBehaviour {
     // TODO: add seed state if necessary
-    public enum State { error, water, dirt, grass, sheep, rock };
+    public enum State { error, water, victory_water, dirt, grass, sheep, rock , seed};
     public State currentState;
 
     // The GameObject that's displayed or something
@@ -14,7 +14,7 @@ public class TileScript : MonoBehaviour {
     public void SetState(State NewState)
     {
         bool ChangeDenied = false;
-        // Is this what they call a NewState machine?
+        // Is this what they call a state machine?
         if (this.currentState != NewState && this.currentState != State.error)
         {
             // Cases where a state change is possible
@@ -25,6 +25,20 @@ public class TileScript : MonoBehaviour {
             else if (this.currentState == State.grass && NewState == State.dirt)
             {
                 // Mouton goes here I guess
+            }
+            else if(this.currentState == State.seed)
+            {
+                // Seed pickup goes here
+            }
+            else if (this.currentState == State.victory_water)
+            {
+                // Trigger victory here
+                ChangeDenied = true;
+            }
+            else if(this.currentState == State.water)
+            {
+                // Prevent water from being overwritten
+                ChangeDenied = true;
             }
             else ChangeDenied = true;
         }
