@@ -413,7 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 12
   height: 12
-  GrassTiles:
+  GrassTilesPrefabs:
   - {fileID: 2008559132738843861, guid: d7c116573278b9e429075e490cbc2a90, type: 3}
   - {fileID: 6239524668202105571, guid: 267bf3ddbe4a0b34d9bd075710200157, type: 3}
   - {fileID: 6413323860074030192, guid: 2199ab30c4fbd184cacf693b411409c1, type: 3}
@@ -431,6 +431,10 @@ MonoBehaviour:
   - {fileID: 5477993897354626193, guid: f17151c1adf5b0345ad9080880f793bc, type: 3}
   - {fileID: 4839026418069655399, guid: 9a94b231c5272e448ab6f4374f8705ed, type: 3}
   - {fileID: 2109778988840738388, guid: 3011b2523b44fde448d35483a3f6b784, type: 3}
+  DirtTilePrefab: {fileID: 1631795173219228831, guid: 5a72b203ca679414785fd0d2822c3716,
+    type: 3}
+  WaterTilePrefab: {fileID: 0}
+  ConcreteTilePrefab: {fileID: 0}
   tileMap: {fileID: 2066502879}
 --- !u!4 &1933985093
 Transform:
@@ -473,8 +477,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066502876}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.0249, z: 0}
+  m_LocalScale: {x: 1, y: 0.9972, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2103015465}
@@ -2077,7 +2081,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103015463}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
