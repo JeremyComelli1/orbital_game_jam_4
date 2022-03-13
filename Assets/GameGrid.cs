@@ -24,8 +24,9 @@ public class GameGrid : MonoBehaviour
         {
             for(int j = 0; j< height; j++)
             {
-                //Debug.Log();
-                tiles[i,j] = Instantiate(GrassTiles[Random.Range(0, GrassTiles.Count)], tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))), Quaternion.identity);
+
+                // Spawn Tiles with an offset to prevent clipping with the underlying tilemap 
+                tiles[i, j] = Instantiate(GrassTiles[Random.Range(0, GrassTiles.Count)], tileMap.GetCellCenterWorld(ArrayIndexToGridPosition(new Vector2Int(i, j))) + new Vector3(0, 0, -1), Quaternion.identity);
             }
         }
 
