@@ -123,37 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &40521650
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 40521651}
-  m_Layer: 0
-  m_Name: Sheep
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &40521651
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40521650}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2457132, y: 0.058413565, z: 0.08005896}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &736859092
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,8 +402,13 @@ MonoBehaviour:
   - {fileID: 2109778988840738388, guid: 3011b2523b44fde448d35483a3f6b784, type: 3}
   DirtTilePrefab: {fileID: 1631795173219228831, guid: 5a72b203ca679414785fd0d2822c3716,
     type: 3}
-  WaterTilePrefab: {fileID: 0}
-  ConcreteTilePrefab: {fileID: 0}
+  WaterTilePrefab: {fileID: 5887494117279252, guid: b31411b0d4007764cace5ae8fcf0aec1,
+    type: 3}
+  ConcreteTilePrefab: {fileID: 6642016580527500265, guid: 84a274fd45150664e8dceb6b912f5d68,
+    type: 3}
+  SheepPrefab: {fileID: 4338055261315880688, guid: 8c4f2949abb10c44db0bb173bded1889,
+    type: 3}
+  sheeps: []
   tileMap: {fileID: 2066502879}
 --- !u!4 &1933985093
 Transform:
@@ -449,7 +423,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2066502876
 GameObject:

@@ -25,6 +25,7 @@ public class TileScript : MonoBehaviour {
             else if (this.currentState == State.grass && NewState == State.dirt)
             {
                 // Mouton goes here I guess
+                this.SwapCurrentTile(State.dirt);
             }
             else if(this.currentState == State.seed)
             {

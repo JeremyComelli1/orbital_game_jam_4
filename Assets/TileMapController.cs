@@ -35,7 +35,8 @@ public class TileMapController : MonoBehaviour {
                 previous = gridPosition;
 
                 //gameGrid.GetComponent<GameGrid>().PlantThiccSeed(gridPosition);
-                gameGrid.GetComponent<GameGrid>().PlantLongSeed(gridPosition, GameGrid.Direction.left);
+                //gameGrid.GetComponent<GameGrid>().PlantLongSeed(gridPosition, GameGrid.Direction.left);
+                gameGrid.GetComponent<GameGrid>().PlantThiccSeed(gridPosition);
 
             }
 
